@@ -34,7 +34,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-
+    timeout-minutes: 20
     steps:
     - name: SSH into Raspberry Pi and deploy
       timeout-minutes: 20
