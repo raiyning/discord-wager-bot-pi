@@ -42,6 +42,7 @@ jobs:
         host: ${{ secrets.PI_HOST }}
         username: ${{ secrets.PI_USER }}
         key: ${{ secrets.PI_SSH_KEY }}
+        timeout: 1200
         script: |
           echo timestamp=$(date +%s) >> gitflow_logs.txt
           docker pull ${{ secrets.DOCKER_USERNAME }}/discord-bot:latest
