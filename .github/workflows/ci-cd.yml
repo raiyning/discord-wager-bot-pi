@@ -43,6 +43,7 @@ jobs:
         username: ${{ secrets.PI_USER }}
         key: ${{ secrets.PI_SSH_KEY }}
         script: |
+          echo timestamp=$(date +%s) >> gitflow_logs.txt
           docker pull ${{ secrets.DOCKER_USERNAME }}/discord-bot:latest
           docker stop discord_bot || true
           docker rm discord_bot || true
