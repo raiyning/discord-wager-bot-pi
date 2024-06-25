@@ -1,0 +1,3 @@
+-- SQLite
+INSERT INTO users (id,user_id, server_id, points, created_at)
+VALUES (NULL,312967858768314368,797536267536957471,-10,2024-06-12 13:36:56);
