@@ -34,8 +34,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    timeout-minutes: 20
+    timeout-minutes: 20  # Set according to your needs
+
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Start keep-alive script
+      run: ./keep_alive.sh &
+
     - name: SSH into Raspberry Pi and deploy
       timeout-minutes: 20
       uses: appleboy/ssh-action@master
@@ -49,3 +56,6 @@ jobs:
           docker stop discord_bot || true
           docker rm discord_bot || true
           docker run -d --name discord_bot --env-file .env ${{ secrets.DOCKER_USERNAME }}/discord-bot:latest
+
+    - name: Stop keep-alive script
+      run: pkill -f keep_alive.sh
