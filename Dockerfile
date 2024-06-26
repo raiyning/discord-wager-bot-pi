@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.11-buster
+FROM python:3.11
 
 # Set the working directory in the container
 WORKDIR /app
